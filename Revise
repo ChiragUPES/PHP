@@ -163,6 +163,10 @@ Sessions: When we do work with an application, we simply open and login to  the 
           session_start()
           $_SESSION['name']="value";
           How to delete a session-> session_destroy() and session_unset();
+
+Main difference bw session and cookies is that cookies are stored on client side while sessions are stored on server side.We can manually set an expiry for an cookies
+but session only remain active as long as browser is open.
+                  
 Navigator used for browser detection.
 Magic methods:  These are the functoins that are defined always inside the class. These are __set(for set a data),__get(for read data)
                 function that starts with 2 underscore "function __ construct()". used to inializes the value at the time of the creation.
@@ -182,3 +186,50 @@ Difference bw get and post:             Get                                   Po
                                 request is delivered.                   |
                            4)   Limited amount of data is transfered    |     Large as data is sent in body
                                 as data is sent in header.              |
+difference bw echo and print-> print is function which return value while echo is not a function
+                               We can not pass multiple string in print but can pass multiple string in echo.
+                               echo is faster than print.
+difference bw $a and $$a-> $a stores variable data while $$a stores the variable of variable.
+constant in php can be define using define() and const() function
+isset()-< used to check whetehr the variable is defined or not
+how to download a file in php-> readfile($filnename) function to download file in php
+mail($to,$subject,$message,$headers);
+exit()-> is used to stop the execution of php script.
+CRYPT(),MD5()-> are the encryption function in php
+explode()-> string into array
+IP addres of client in PHP-> $_SERVER['REMOTE_ADDR'];
+Persistent cookies is permanently stores in client's browser. 
+PHP Parser are the opening and closing tag of php. It basically describe the scope of closing tag. <?php ?>
+create a database in php-> establish connection to server.If connection establish, write a SQL query to create a database and execute the query.
+PEAR-> PHP Extension And Application Repository
+PHP4 does not support oops while php5 supports.
+PHP supports onlu single inheritance.
+Final is introduced in php5. Final class means that class can not be extended while final method means that can not be overridden.
+imagetypes() gives the image format 
+The functions are getimagesize() for size, imagesx() for width and imagesy() for height. 
+print_r()-> function to display a human readable result.
+set_time_limit(0) added at the begining of a script sets to infinite time of execution.
+file_get_contents() lets reading a file and storing it in a string variable. 
+fputcsv() is a function using which we can send data into excel file.
+mysql_pconnect()-> persistent connection. Means that the collection does not close when the PHP scripts end.
+mysql_fetch_array() collects all the matching records while mysql_fetch_  object() collect the first single match
+is_numeric is used to check whteher the variable is number or not.
+empty()-> function is used to check wheteher the variable is empty or not.
+unlink()-> delete the file given as entry while unset() is used to make a variable undefined.
+how to pass variable by reference in php-> using ampersand like &$var
+:: is used to access static methods that do not require object initialization. 
+we can propagates session id using cookies.
+$GLOBALS is associative array including references to all variables which are currently defined in the global scope of the script. 
+$_SERVER is an array including information created by the web server such as paths, headers, and script locations. 
+$_FILES is an associative array composed of items sent to the current script via the HTTP POST method. 
+$_FILES['userfile']['name'] represents the original name of the file on the client machine, 
+We can change the maximum size of files to be uploaded by changing upload_max_filesize in php.ini.
+The default session time in php is until the closing of the browser 
+types of error in php-> 1) Notices-> error in the syntax of source code.
+                        2) Warning-> include
+                        3) Fatal Error-> require
+error_reporting(E_ALL)-> to display the error in php
+No, the value of a constant cannot be changed once it’s declared during the PHP execution.  
+if(empty($_POST['email'])){
+  echo "The email cannot be empty";
+}
