@@ -1,1 +1,184 @@
+PHP (Personal Home Page) 1) Language used for make the webpages dynamic.
+                         2) Also known as hypertext pre-processor
+                         3) Loosely Types language means we do not need to define the data type of variable.
 
+In php , is data type are there? Yes, internally
+a=10      // to assign value
+a==10     // value comparison 1=='1' -> True (Value) 
+a===10    // Strict comparison(Value+datatype)   1==='1' -> False
+
+for concatenation used -> . Example echo $a."Text";
+
+<?php
+$_a=$_REQUEST['uname'];
+$_b=$_REQUEST['pass'];
+?>
+Note: If we use any html tag in php use echo. echo "<br>";
+
+Arrays: In PHP, there are three types of array indexed, associative , mutidimensional array.
+                indexed-> array with the numeric index    array('Cars','BMW');
+                associative-> having key value pair
+                multidimensional-> array containing one or more array
+
+count(array)-> returns the number of elements in array.  
+
+How to traverse indexed array-> for($a=0;$a<count(array);$a++)
+                                {
+                                  echo $x[$a];
+                                  echo "<br>";
+                                }
+
+Associatie array: $age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+For each loop is : foreach($age as $x=>$x_value)
+                   {
+                        echo "Key=" .$x.",value=" .$x_value;
+                    }
+Multi-dimensional:  $cars = array (
+                    array("Volvo",22,18),
+                    array("BMW",15,13),
+                    array("Saab",5,2),
+                    array("Land Rover",17,15)
+                    );                    
+for loop inside for loop:     <?php
+                              for ($row = 0; $row < 4; $row++) {
+                              echo "<p><b>Row number $row</b></p>";
+                              echo "<ul>";
+                              for ($col = 0; $col < 3; $col++) {
+                              echo "<li>".$cars[$row][$col]."</li>";
+                              }
+                              echo "</ul>";
+                              }
+                              ?>    
+Sort arrays functions :
+sort()-> sort array in ascending order.
+rsort()-> sort array in descending order.
+asort()-> associative array in ascending order as per value
+ksort()-> associative array as per key
+arsort()->associative in descending, according to value
+krsort()-> associative in descending according to key.
+count()-> return the numbers of element in array.
+end()-> moves internal pointer to the last
+current()-> value of current element in an array
+shuffle()-> randomize the order of element in an array.
+explode()-> string into an array
+
+File handling:
+functions that are used to include the files in the php page.
+Below are the functions of file inclusion menas if we create a header in the file and want to use same header in the another page also. so, We can simply include that
+file in our code.
+include()-> if the file is not present than it will give warning only.
+            Syntax->include 'file_name';
+include_once-> means if the file is present there than no need to write again.
+                Syntax:include_once 'file_name';
+require()-> if the file is npt loaded than it will give the error executuion of program will stop.
+            require("xxmenu.php"); 
+require_once()-> add the code only once. If it is present already than okay otherwise it will give error.
+
+Note:
+file_exists("test.txt")
+is_readable,is_writable,is_executable
+filesize("test.txt")
+fgets()-> read a line by line
+fread(filename,"10")->read particular bytes from the file. It will read 10 bytes.
+fgetc(filename)one character from the line.
+copy('file1name','file2name') or die();
+rename($fn,$newfn);
+unlink(): delete a file 
+
+uploading a file on server: inside form-> method should be post
+                                          needs the attribute enctype="multipart/form-data"
+                             $_FILES-> returns the information about the files
+                            $name=$_FILES['file']['name'];
+                            $dir="uploads/";
+                            if(isset($_POST['upload'])
+                            { 
+                                if($_FILES['file']['size']>1000)
+                                {
+                                  echo "Sorry Large File";
+                                }
+                                move_uploaded_file($name,$dir.$name);// Take directory and file name as input.
+                             }
+PHP variable scope: Local,global and static
+                    Local-> Variable that is declared inside the function.
+                    Global-> variables that are declared outside the function. And global keyword is used to access that variable.
+                             Php also stores all the global variables in the array called $GLOBALS[index];
+                    Static-> as a function exectued all the local variables are destoyed and on the function calling it will initialized again. But sometimes
+                             we want a local variable not to be deleted. So we use Static keyword in php.
+                              <?php
+                                    function myTest() {
+                                      static $x = 0;
+                                      echo $x;
+                                      $x++;
+                                    }
+
+                                    myTest();
+                                    myTest();
+                                    myTest();
+                                    ?> 
+                                    Output is: 0 1 2
+Array Functions:
+1) arrray()-> creates an array
+2) array_chunks()-> split the array into chunks of an array.
+3) arrays_diff()-> compares two array and return the difference.
+4) array_fill(index,number,value)-> fill an array with values.
+5) array_merge()-> merge two array into one array
+6) array_pop()-> deletes the last element of an array
+7) array_push()-> insert one more element to the end of an array.
+8) array_reverse()-> return the array in reverse order.
+9) array_slice()-> return the selected part of an array.
+                    $a=array("red","green","blue","yellow","brown");
+                          print_r(array_slice($a,1,2));
+                    Output-> Array ( [0] => green [1] => blue ) ;
+                          print_r(array_slice($a,2));
+                    Output-> Array ( [0] => blue [1] => yellow [2] => brown ) 
+
+Database Connectivity: mysql_connect(servername,username,password);
+                                    (localhost,root,"");
+default id and password of xampp is -> root and null
+$link=mysql_connect(servername,username,pass);
+mysql_select_db('databasename',$link);
+mysql_query()-> to run a query;
+mysql_close().
+mysql_fetch_array()-> fetch the record as an associative array. 
+                      while($row=mysql_fetch_array($result))
+                      {
+                          echo $row['firstname']."</td>";
+                      }
+mysql_num_row>0                      
+
+
+Cookies and session : Cookie is a small file with maximum size of 4kb that is stored on the client machine by the web server.
+                      It is often used to identify the user.When we again send a request to te server than server will authenticate us as per the cookies.
+                      setcookie() function in php with wich we can create the cookies.
+                      Take certain things as a parameter like-> cookie name, cookie value, expiry time ,security(T/F). True means only on HTTPS
+                      cokies can be accessed from anywhere in the project.
+            Read from the cookie-> $_COOKIES['cookie name'];
+            Check cookies created or not?-> isset($_COOKIE['name']);
+            Delete a cookie->   1) if time expires
+                                2) if we give negative value 
+
+Sessions: When we do work with an application, we simply open and login to  the application do what we want and than close it. This is much like a session.
+          As web server does not know who you are and what you do. So, web server creates an session id and before accesing any page of the applicatoin server
+          check wheteher the seeion is created or not.So session variable contains the information about the user.
+          session_start()
+          $_SESSION['name']="value";
+          How to delete a session-> session_destroy() and session_unset();
+Navigator used for browser detection.
+Magic methods:  These are the functoins that are defined always inside the class. These are __set(for set a data),__get(for read data)
+                function that starts with 2 underscore "function __ construct()". used to inializes the value at the time of the creation.
+                                                       function __destruct()-> used to destroy the object.(destructor calls automatically when scripts end)
+                                                       we can destroy the object using unset() function.
+
+
+
+ 
+
+Difference bw get and post:             Get                                   Post
+                                                                                                                  
+                           1)   Not secure as data is shown in URL      |      Secure
+                           2)   can be bookmarked                       |     Not bookmarked
+                           3)   Get is idempotent. means second request |     Not idemotent
+                                will be ignored until response of first | 
+                                request is delivered.                   |
+                           4)   Limited amount of data is transfered    |     Large as data is sent in body
+                                as data is sent in header.              |
