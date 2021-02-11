@@ -1,1 +1,12 @@
+HRM Module-> In this module,Admin can see the details about the employees as per the department. He can get all the information about the employe like for how many
+             year that employee is working for and what is the salary status of the employee. He can easily insert,update delete the information as per the requirement.
 
+Job Posting-> If the company wants to post a job than admin can easily post a job for the company and admin can see who is showing interest in the job.
+              If any candidate apply for the job than automatic succesfull mail  will be sent to the candidate. This module also include file uploading part as 
+              candidate have to upload their resumes. (Using Pathinfo function we can check the extension of file).
+              $ext = pathinfo($file);
+              $ext['extension']
+              
+Automatic joining letter: This module takes the name and designation salary as the input and generates the automatic joining letter of the candidate and it will 
+                          automatic send to the candidate through the comapny mail id.
+                        
