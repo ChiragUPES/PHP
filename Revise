@@ -186,12 +186,13 @@ Difference bw get and post:             Get                                   Po
                                 request is delivered.                   |
                            4)   Limited amount of data is transfered    |     Large as data is sent in body
                                 as data is sent in header.              |
-difference bw echo and print-> print is function which return value while echo is not a function
-                               We can not pass multiple string in print but can pass multiple string in echo.
+difference bw echo and print-> echo has no return value while print has return value 1.
+                               echo takes multiple string as an argument while print takes only one string as an argument.
                                echo is faster than print.
+
 difference bw $a and $$a-> $a stores variable data while $$a stores the variable of variable.
 constant in php can be define using define() and const() function
-isset()-< used to check whetehr the variable is defined or not
+isset()-< used to check whether the variable is defined or not
 how to download a file in php-> readfile($filnename) function to download file in php
 mail($to,$subject,$message,$headers);
 exit()-> is used to stop the execution of php script.
@@ -203,7 +204,7 @@ PHP Parser are the opening and closing tag of php. It basically describe the sco
 create a database in php-> establish connection to server.If connection establish, write a SQL query to create a database and execute the query.
 PEAR-> PHP Extension And Application Repository
 PHP4 does not support oops while php5 supports.
-PHP supports onlu single inheritance.
+PHP supports only single inheritance.
 Final is introduced in php5. Final class means that class can not be extended while final method means that can not be overridden.
 imagetypes() gives the image format 
 The functions are getimagesize() for size, imagesx() for width and imagesy() for height. 
@@ -211,8 +212,8 @@ print_r()-> function to display a human readable result.
 set_time_limit(0) added at the begining of a script sets to infinite time of execution.
 file_get_contents() lets reading a file and storing it in a string variable. 
 fputcsv() is a function using which we can send data into excel file.
-mysql_pconnect()-> persistent connection. Means that the collection does not close when the PHP scripts end.
-mysql_fetch_array() collects all the matching records while mysql_fetch_  object() collect the first single match
+mysql_pconnect()-> persistent connection. Means that the connection does not close when the PHP scripts end.
+mysql_fetch_array() collects all the matching records while mysql_fetch_object() collect the first single match
 is_numeric is used to check whteher the variable is number or not.
 empty()-> function is used to check wheteher the variable is empty or not.
 unlink()-> delete the file given as entry while unset() is used to make a variable undefined.
